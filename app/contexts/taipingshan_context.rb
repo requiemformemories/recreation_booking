@@ -17,7 +17,7 @@ class TaipingshanContext
     res_body = res.body.force_encoding('UTF-8')
     @data = JSON.parse(res_body)
 
-    # return false unless perform_success?
+    return false unless perform_success?
 
     self
   end
