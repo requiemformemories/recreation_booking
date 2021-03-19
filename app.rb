@@ -9,29 +9,12 @@ class RecreationBookingApp < Sinatra::Base
     'This is recreation booking'
   end
 
-  get '/calendars/:location' do
-    case params['location']
-    when 'taipingshan'
-      content_type :json
-      TaipingshanContext.new(village: params[:village], room_type_id: params[:roomTypeId])
-                        .perform
-                        .dates_hash
-                        .to_json
-    else
-      raise "The location #{params['location']} is not available."
-    end
-  end
+  get '/calendars/taipingshan' do
+    context = TaipingshanContext.new(village: params[:village], room_type_id: params[:room_type_id]).perform
+    halt 404, 'No data is found' unless context
 
-  error 400 do
-    "Bad request.#{env['sinatra.error'].message}"
-  end
-
-  error 404 do
-    "Not found.#{env['sinatra.error'].message}"
-  end
-
-  error 500..599 do
-    'Something went wrong!'
+    content_type :json
+    context.dates_array.to_json
   end
 
   run! if app_file == $PROGRAM_NAME
