@@ -1,0 +1,74 @@
+'01':
+  village_name: '太平山莊'
+  rooms:
+    12:
+      name: 紅檜二人房
+      village: 01
+      roomTypeId: 12
+    8:
+      name: 香杉二人房
+      village: 01
+      roomTypeId: 8
+    14:
+      name: 二人房加床
+      village: 01
+      roomTypeId: 14
+    15:
+      name: 四人套房
+      village: 01
+      roomTypeId: 15
+    9:
+      name: 台灣杉四人團體房
+      village: 01
+      roomTypeId: 9
+    16:
+      name: 台灣杉六人團體房
+      village: 01
+      roomTypeId: 16
+    17:
+      name: 台灣杉八人團體房
+      village: 01
+      roomTypeId: 17
+    21:
+      name: 扁柏二人房
+      village: 01
+      roomTypeId: 21
+    26:
+      name: 扁柏四人套房 (605)
+      village: 01
+      roomTypeId: 26
+    27:
+      name: 扁柏四人套房 (606)
+      village: 01
+      roomTypeId: 27
+    23:
+      name: 扁柏四人團體房
+      village: 01
+      roomTypeId: 23
+    13:
+      name: 肖楠二人房
+      village: 01
+      roomTypeId: 13
+    24:
+      name: 肖楠背包客房/床 (女性專屬房)
+      village: 01
+      roomTypeId: 24
+    25:
+      name: 肖楠背包客房/床 (男性專屬房)
+      village: 01
+      roomTypeId: 25
+'02':
+  village_name: '翠峰山莊'
+  rooms:
+    18:
+      name: 翠峰山屋二人房
+      village: 02
+      roomTypeId: 18
+    20:
+      name: 翠峰山屋二人房加床
+      village: 02
+      roomTypeId: 20
+    10:
+      name: 翠峰山屋八人團體房
+      village: 02
+      roomTypeId: 10

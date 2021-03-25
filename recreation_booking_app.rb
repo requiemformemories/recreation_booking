@@ -2,11 +2,16 @@
 
 require 'sinatra/base'
 require_relative 'app/contexts/taipingshan_context'
+require_relative 'app/contexts/taipingshan_info_context'
 
 class RecreationBookingApp < Sinatra::Base
   get '/' do
     # TODO: use guide
     'This is recreation booking'
+  end
+
+  get '/infomation/taipingshan' do
+    return TaipingshanInfoContext.get(village: params[:village], room_type_id: params[:room_type_id]).to_json
   end
 
   get '/calendars/taipingshan' do
