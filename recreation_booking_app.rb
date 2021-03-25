@@ -10,6 +10,8 @@ class RecreationBookingApp < Sinatra::Base
   end
 
   get '/calendars/taipingshan' do
+    return halt 404 unless params[:village] && params[:room_type_id]
+
     context = TaipingshanContext.new(village: params[:village], room_type_id: params[:room_type_id]).perform
     halt 404, 'No data is found' unless context
 

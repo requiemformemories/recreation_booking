@@ -1,5 +1,6 @@
 /.bundle
 /vendor/bundle
+.rspec
 
 .DS_Store
 
