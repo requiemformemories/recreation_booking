@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 require 'sinatra/base'
+require 'redis-sinatra'
 require_relative 'app/contexts/taipingshan_context'
 require_relative 'app/contexts/taipingshan_info_context'
 
 class RecreationBookingApp < Sinatra::Base
+  register Sinatra::Cache
+
   get '/' do
     # TODO: use guide
     'This is recreation booking'
@@ -17,7 +20,7 @@ class RecreationBookingApp < Sinatra::Base
   get '/calendars/taipingshan' do
     return halt 404 unless params[:village] && params[:room_type_id]
 
-    context = TaipingshanContext.new(village: params[:village], room_type_id: params[:room_type_id]).perform
+    context = TaipingshanContext.new(settings.cache, village: params[:village], room_type_id: params[:room_type_id])
     halt 404, 'No data is found' unless context
 
     content_type :json
