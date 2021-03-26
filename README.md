@@ -10,8 +10,9 @@ Want to look for accoumadation in forest recreation areas immediately? Use Recre
 
 run `bundle install` and `rackup` in the repository directory.
 
-```
+```bash
 bundle install
+mv config.yml.example config.yml # update config in config.yml
 bundle exec rackup
 ```
 
