@@ -2,6 +2,11 @@
 
 source 'https://rubygems.org'
 
-gem 'rack-test', '~> 1.1'
-gem 'sinatra', '~> 2.1'
+github 'sinatra/sinatra' do
+  gem 'sinatra-contrib'
+end
 gem 'redis-sinatra', '~> 1.4'
+
+# ==== Testing ====
+gem 'rspec'
+gem 'rack-test', '~> 1.1'

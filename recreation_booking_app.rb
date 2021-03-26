@@ -1,12 +1,17 @@
 # frozen_string_literal: true
 
 require 'sinatra/base'
+require 'sinatra/config_file'
 require 'redis-sinatra'
 require_relative 'app/contexts/taipingshan_context'
 require_relative 'app/contexts/taipingshan_info_context'
 
 class RecreationBookingApp < Sinatra::Base
-  register Sinatra::Cache
+  register Sinatra::ConfigFile
+
+  config_file 'config.yml'
+
+  set :cache, Sinatra::Cache::RedisStore.new(settings.redis_url)
 
   get '/' do
     # TODO: use guide
