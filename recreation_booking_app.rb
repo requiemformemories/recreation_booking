@@ -5,6 +5,7 @@ require 'sinatra/config_file'
 require 'redis-sinatra'
 require_relative 'app/contexts/taipingshan_context'
 require_relative 'app/contexts/taipingshan_info_context'
+require_relative 'app/services/line_messenger'
 
 class RecreationBookingApp < Sinatra::Base
   register Sinatra::ConfigFile
@@ -30,6 +31,12 @@ class RecreationBookingApp < Sinatra::Base
 
     content_type :json
     context.dates_array.to_json
+  end
+
+  post '/line/callback' do
+    result = LineMessenger.new(request, config: settings.line).present
+
+    halt result.status, result.body
   end
 
   run! if app_file == $PROGRAM_NAME

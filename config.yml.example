@@ -1,6 +1,18 @@
 development:
   redis_url: 'localhost:6379'
+  line:
+    channel_id:
+    channel_secret:
+    chanel_token:
 test:
   redis_url: 'localhost:6379'
+  line:
+    channel_id:
+    channel_secret:
+    chanel_token:
 production:
   redis_url: 'localhost:6379'
+  line:
+    channel_id:
+    channel_secret:
+    chanel_token:

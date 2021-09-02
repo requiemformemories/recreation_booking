@@ -26,19 +26,19 @@ describe RecreationBookingApp do
     context 'when `village` and `room_type_id` are not provided' do
       let(:village_keys) { JSON.parse(subject.body).keys }
       it { is_expected.to be_ok }
-      it { expect(village_keys).to eq(['01', '02']) }
+      it { expect(village_keys).to eq(%w[01 02]) }
     end
 
     context 'when `village` is provided' do
-      let(:params) { {village: '02'} }
+      let(:params) { { village: '02' } }
       let(:room_type_id_keys) { JSON.parse(subject.body)['rooms'].keys }
 
       it { is_expected.to be_ok }
-      it { expect(room_type_id_keys).to eq(['18', '20', '10']) }
+      it { expect(room_type_id_keys).to eq(%w[18 20 10]) }
     end
 
     context 'when `village` and `room_type_id` are provided' do
-      let(:params) { {village: '02', room_type_id: '10'} }
+      let(:params) { { village: '02', room_type_id: '10' } }
       let(:room_type_id_name) { JSON.parse(subject.body)['name'] }
 
       it { is_expected.to be_ok }

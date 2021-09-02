@@ -4,7 +4,6 @@ require 'net/http'
 require 'json'
 
 class TaipingshanContext
-
   CALENDAR_PATH = 'https://tpsr.forest.gov.tw/TPSOrder/calendar'
   MONTH_KEYS = %w[thisMonth nextMonth nextTwoMonth].freeze
 
@@ -35,7 +34,7 @@ class TaipingshanContext
   private
 
   def get_data
-   @data = @cache.fetch("taipingshan:#{@village}:#{@room_type_id}", expires_in: 60) { perform }
+    @data = @cache.fetch("taipingshan:#{@village}:#{@room_type_id}", expires_in: 60) { perform }
   end
 
   def perform_success?(data)
